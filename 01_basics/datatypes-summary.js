@@ -18,7 +18,7 @@ a = "abc";   // String
 
 In the above JavaScript code, the variable a is first assigned a number, and then it is reassigned a string. This is valid in JavaScript due to its dynamic typing
 
- #Reference (Non primitive)
+ #Reference (Non primitive) (reference)
   Array, Objects, Functions 
 
   const heros = ["shaktiman","nagraj","doga"]
@@ -26,7 +26,7 @@ In the above JavaScript code, the variable a is first assigned a number, and the
     name: "aayush",
     age: "24",
   }
- curly braces k andar jo be hai vo object hai 
+ curly braces k andar jo bhi hai vo object hai 
 
  const myFunction = function(){
     console.log("hello");
@@ -36,3 +36,28 @@ In the above JavaScript code, the variable a is first assigned a number, and the
 
  to read the typeOf functionaity of primitive and nonprimitive dataType
  */
+
+ /*
+ --------------------memory------------------------
+
+ Stack(primitive)---- copy of the value
+ 
+ Heap(Non-primitive) --- In heap they get the same reference of the value
+*/
+ let myName = "Ak"
+ let anotherName = myName
+ anotherName="chai peelo friends"
+
+ console.log(anotherName);
+
+ let userOne  ={
+    email:"user@google.com",
+    upi:"user@ybl"
+ }
+
+ let userTwo = userOne
+
+ userTwo.email = "aayush@google.com"
+
+ console.log(userOne.email);
+ console.log(userTwo.email);
