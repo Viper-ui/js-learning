@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai or code</title>
+</head>
+<body style="background-color: #212121;color: #fff;">
+    
+</body>
+<script>
+    const div = document.createElement('div')
+    console.log(div);
+
+    //now add properties in the div 
+
+    div.className="main"
+    div.id=Math.round(Math.random() *10+1)
+
+    // to set custom attribute
+    div.setAttribute("title","code like no one else")
+    div.style.backgroundColor="green"
+    div.style.padding="12px"
+    div.innerText="chai aur code"
+
+    //now it is not displayed in page as div created is in memory
+    const addText= document.createTextNode("code please!!") 
+    div.appendChild(addText)
+
+    document.body.appendChild(div) // now this will show the result on browser with all the changes made to div.
+</script>
+</html>

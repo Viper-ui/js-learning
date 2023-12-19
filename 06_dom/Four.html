@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Last dom Info</title>
+</head>
+<body style="background-color: #212121;color: #fff;">
+    <ul class="language">
+        <li>javascript</li>
+    </ul>
+</body>
+<script>
+    // Lets try and add one more list item and keep in mind we can ask for more so we do it using function. (basic tarika with a problem)as it is only suitable for very short addition
+    function addItem(langName) {
+        const li =document.createElement('li');
+        li.innerHTML=`${langName}`
+        document.querySelector('.language').appendChild(li)
+    }
+    addItem("python")
+    addItem("NodeJs")
+
+    //now optimized way
+
+    function addOptiLanguage(langName){
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(langName));
+        document.querySelector('.language').appendChild(li)
+    }
+    addOptiLanguage("go lang")
+
+    //Edit value
+
+    const secondLang= document.querySelector("Li:nth-child(2)")
+    // secondLang.innerHTML="Mojo"
+    const newLi = document.createElement('li')
+    newLi.textContent="Mojo"
+
+    //here we have the reference of the elemenet so we can edit in this manner and we dont need to do append child and all
+    secondLang.replaceWith(newLi)
+
+    //edit 2
+
+    const firstLang =document.querySelector("li:first-child")
+    firstLang.outerHTML='<li>Typescript</li>'
+
+    //remove 
+
+    const lastLang = document.querySelector("li:last-child")
+    lastLang.remove()
+</script>
+</html>
