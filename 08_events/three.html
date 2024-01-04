@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Async project Tutotial </h1>
+    <button id="stop">Stop</button>
+    <button id="start">start</button>
+</body>
+<script>
+    const sayDate = function(){
+    console.log("Aayush",Date.now());
+  }
+  // setInterval(sayDate,1000)
+
+  //stop set interval 
+  //const intervalId =  (sayDate,1000)
+  //clearInterval(intervalId)
+
+  // start on start button click and stop on stop button click
+let intervalId;
+   document.querySelector('#start').addEventListener('click',function(){
+    // setInterval(sayDate,1000) --- this works
+ intervalId= setInterval(sayDate, 1000)})
+  document.querySelector('#stop').addEventListener('click',function(){
+ clearInterval(intervalId)
+ // clearInterval(setInterval(sayDate, 1000))--- not works because When you pass this directly into clearInterval, it tries to clear that interval immediately after it’s been set. This means the interval won’t have a chance to run even once.
+})
+ 
+</script>
+</html>
