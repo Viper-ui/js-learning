@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121;">
+    0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete.
+</body>
+<script>
+    //xml ajax rquest
+    const requestUrl = "https://api.github.com/users/Viper-ui"
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', requestUrl)
+   xhr.onreadystatechange = function(){
+       console.log(xhr.readyState);
+    if (xhr.readyState === 4) {
+        const data = JSON.parse(this.responseText);
+        console.log(data.followers); // this gives undefined as when we get response from a url most of the time its in string and not in object so please ceck using typeof henc we fisrt parse it and then we will be able to get the output.
+
+        
+    }
+   }
+    xhr.send();
+    
+</script>
+</html>
