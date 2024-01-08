@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+</head>
+<body>
+    <button id="orange">orange</button>
+    <button id="green">green</button>
+</body>
+<script>
+//     function main() {
+//        let name = "Mozilla"; // name is a local variable created by init
+//        function displayName() {
+//     // displayName() is the inner function, that forms the closure
+//        console.log(name); // use variable declared in the parent function
+//   }
+//   displayName();
+// }
+// main();
+
+//------------------------lexical scoping------------------------------------
+function outer(){
+    let username ="hitesh"
+    //chote bado se maang sakte hai but bade choto se nhi maang sakte
+    function inner(){
+        let secret ="my123"
+        console.log("inner",username);
+    }
+    // bhaiyo me no sharing here secret cannot be accesed from innerTwo
+    function innerTwo(){
+        let secret ="my123"
+        console.log("innerTwo",username); //can access only parent variables
+        console.log(secret); // gives error
+    }
+    inner()
+}
+//anything declared in function is not VAILABLE IN OUTSIDE scope.
+// If we have a function inside a function then the inner function has the access to all the variables declared for outer function this is lexical scoping.
+outer()
+console.log("Too outer" ,username);
+
+//-----------------------closure--------------------------------------------------
+function makeFunc() {
+  const name = "Mozilla";
+  function displayName() {
+    console.log(name);
+  }
+  return displayName; //remember we are returning here the reference of function
+  // yaha ab hume sochna padega qki function ka scope tabhi tak rehta hai jab tak vo execute hota hai aur yaha function khtm hogya to ab line 553 kaise execute hogi?--here comes closure(memory reference role) here poori memory shre hoti hai matlab poora lexical scope i.e inner function apne sath poora outer function ka scope leke jayega (this is what closure in js does)
+}
+
+const myFunc = makeFunc();
+myFunc();
+
+</script>
+<script>
+  // document.getElementById('orange').onclick= function(){
+  //   document.body.style.backgroundColor='orange'
+  // }
+  // document.getElementById('green').onclick= function(){
+  //   document.body.style.backgroundColor='green'
+  // }
+
+  // suppose we have 500 buttons
+  function clickHandler(color){
+    //so here the inside color from the utside function is accesed by the inner due to closure 
+     return function(){
+       document.body.style.backgroundColor=`${color}`
+      
+  }
+ 
+  }
+
+  document.getElementById('orange').onclick =clickHandler("orange")
+  document.getElementById('orange').onclick =clickHandler("green")
+</script>
+</html>
