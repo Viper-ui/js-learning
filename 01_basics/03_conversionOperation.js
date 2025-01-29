@@ -55,7 +55,8 @@ let str3= str1 + str2
 // console.log(+true);-->1
 // console.log(+"");-->0
 // console.log(true+); --->error
-
+// console.log(1+'2'-1)--->11
+// console.log(-1+2+'1'+2+3)--->working like -1+2=1 then 1+'1'='11' then '11'+2='112' then '112'+3=1123
 let num1,num2,num3
 
 num1=num2=num3 = 2+2
